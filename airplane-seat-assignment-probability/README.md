@@ -1,3 +1,4 @@
+[Discussion Post (created on 10/3/2021 at 0:10)](https://leetcode.com/problems/airplane-seat-assignment-probability/discuss/1150476/easy-0ms-faster-than-100)  
 <h2>1227. Airplane Seat Assignment Probability</h2><h3>Medium</h3><hr><div><p><code data-stringify-type="code">n</code>&nbsp;passengers board an airplane with exactly&nbsp;<code data-stringify-type="code">n</code>&nbsp;seats. The first passenger has lost the ticket and picks a seat randomly. But after that, the rest of passengers will:</p>
 
 <ul>
