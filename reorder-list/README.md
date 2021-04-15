@@ -1,3 +1,4 @@
+[Discussion Post (created on 15/3/2021 at 20:16)](https://leetcode.com/problems/reorder-list/submissions/)  
 <h2>143. Reorder List</h2><h3>Medium</h3><hr><div><p>You are given the head of a singly linked-list. The list can be represented as:</p>
 
 <pre>L<sub>0</sub> → L<sub>1</sub> → … → L<sub>n - 1</sub> → L<sub>n</sub>
