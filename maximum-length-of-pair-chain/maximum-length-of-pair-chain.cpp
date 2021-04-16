@@ -1,14 +1,20 @@
 class Solution {
+    class comp {
+    public:
+        bool operator()(const vector<int>& a, const vector<int>& b) {
+            return a[1] < b[1];
+        }
+    };
 public:
     int findLongestChain(vector<vector<int>>& v) {
-        int sz = v.size();
-        vector<int>dp(sz, 1);
-        sort(v.begin(), v.end());
+        int sz = v.size(), res = 1, j = 0;
+        sort(v.begin(), v.end(), comp());
         for (int i = 1;i < sz;++i) {
-            for (int j = 0;j < i;++j)
-                if (v[j][1] < v[i][0] && dp[j] >= dp[i])
-                    dp[i] = dp[j] + 1;
+            if (v[j][1] < v[i][0]) {
+                ++res;
+                j = i;
+            }
         }
-        return *max_element(dp.begin(), dp.end());
+        return res;
     }
 };
