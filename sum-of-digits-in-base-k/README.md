@@ -1,3 +1,4 @@
+[Discussion Post (created on 13/4/2021 at 17:25)](https://leetcode.com/problems/sum-of-digits-in-base-k/discuss/1206204/0ms-faster-than-100-easy-solution)  
 <h2>1837. Sum of Digits in Base K</h2><h3>Easy</h3><hr><div><p>Given an integer <code>n</code> (in base <code>10</code>) and a base <code>k</code>, return <em>the <strong>sum</strong> of the digits of </em><code>n</code><em> <strong>after</strong> converting </em><code>n</code><em> from base </em><code>10</code><em> to base </em><code>k</code>.</p>
 
 <p>After converting, each digit should be interpreted as a base <code>10</code> number, and the sum should be returned in base <code>10</code>.</p>
