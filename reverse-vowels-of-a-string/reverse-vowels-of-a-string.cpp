@@ -1,58 +1,26 @@
 class Solution {
 public:
-    string reverseVowels(string s) {
-        	if (s.length() < 2)
-
-		return s;
-
-	int i = 0, j = s.length() - 1;
-
-	while (i < j)
-
-	{
-
-		if (s[i] == s[j])
-
-		{
-
-			++i;
-
-			--j;
-
-		}
-
-		else if ((s[i] == 'a' or s[i] == 'e' or s[i] == 'i' or s[i] == 'o' or s[i] == 'u' or s[i] == 'A' or s[i] == 'E' or s[i] == 'I' or s[i] == 'O' or s[i] == 'U') and (s[j] == 'a' or s[j] == 'e' or s[j] == 'i' or s[j] == 'o' or s[j] == 'u' or s[j] == 'A' or s[j] == 'E' or s[j] == 'I' or s[j] == 'O' or s[j] == 'U'))
-
-		{
-
-			char tmp = s[i];
-
-			s[i] = s[j];
-
-			s[j] = tmp;
-
-			++i;
-
-			--j;
-
-		}
-
-		else
-
-		{
-
-			if (s[i] != 'a' and s[i] != 'e' and s[i] != 'i' and s[i] != 'o' and s[i] != 'u' and s[i] != 'A' and s[i] != 'E' and s[i] != 'I' and s[i] != 'O' and s[i] != 'U')
-
-				++i;
-
-			if (s[j] != 'a' and s[j] != 'e' and s[j] != 'i' and s[j] != 'o' and s[j] != 'u' and s[j] != 'A' and s[j] != 'E' and s[j] != 'I' and s[j] != 'O' and s[j] != 'U')
-
-				--j;
-
-		}
-
-	}
-
-	return s;
+    string reverseVowels(string& s) {
+        unordered_set<char>ust = { 'a','e','i','o','u','A','E','I','O','U' };
+        int i = 0, j = s.length() - 1;
+        while (i < j) {
+            //cout<<i<<' '<< j<<'\n';
+            if (ust.find(s[i]) != ust.end() && ust.find(s[j]) != ust.end()) {
+                s[i] += s[j];
+                s[j] = s[i] - s[j];
+                s[i] -= s[j];
+                ++i,--j;
+                continue;
+            }
+            if (ust.find(s[i]) != ust.end())
+                --j;
+            else if (ust.find(s[j]) != ust.end())
+                ++i;
+            else {
+                ++i;
+                --j;
+            }
+        }
+        return s;
     }
 };
