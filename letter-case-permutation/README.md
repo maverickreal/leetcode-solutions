@@ -1,3 +1,4 @@
+[Discussion Post (created on 19/4/2021 at 19:48)](https://leetcode.com/problems/letter-case-permutation/discuss/1217983/easy-basic-recursion)  
 <h2>784. Letter Case Permutation</h2><h3>Medium</h3><hr><div><p>Given a string <code>s</code>, we can transform every letter individually to be lowercase or uppercase to create another string.</p>
 
 <p>Return <em>a list of all possible strings we could create</em>. You can return the output&nbsp;in <strong>any order</strong>.</p>
