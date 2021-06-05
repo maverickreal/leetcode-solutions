@@ -1,3 +1,4 @@
+[Discussion Post (created on 5/5/2021 at 19:47)](https://leetcode.com/problems/maximum-binary-tree/discuss/1252866/simple-solution-C%2B%2B)  
 <h2>654. Maximum Binary Tree</h2><h3>Medium</h3><hr><div><p>You are given an integer array <code>nums</code> with no duplicates. A <strong>maximum binary tree</strong> can be built recursively from <code>nums</code> using the following algorithm:</p>
 
 <ol>
