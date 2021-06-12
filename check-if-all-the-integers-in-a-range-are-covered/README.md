@@ -1,3 +1,4 @@
+[Discussion Post (created on 12/5/2021 at 21:49)](https://leetcode.com/problems/check-if-all-the-integers-in-a-range-are-covered/discuss/1267495/4-ms-faster-than-83.33-or-8.8-MB-less-than-83.33)  
 <h2>1893. Check if All the Integers in a Range Are Covered</h2><h3>Easy</h3><hr><div><p>You are given a 2D integer array <code>ranges</code> and two integers <code>left</code> and <code>right</code>. Each <code>ranges[i] = [start<sub>i</sub>, end<sub>i</sub>]</code> represents an <strong>inclusive</strong> interval between <code>start<sub>i</sub></code> and <code>end<sub>i</sub></code>.</p>
 
 <p>Return <code>true</code> <em>if each integer in the inclusive range</em> <code>[left, right]</code> <em>is covered by <strong>at least one</strong> interval in</em> <code>ranges</code>. Return <code>false</code> <em>otherwise</em>.</p>
