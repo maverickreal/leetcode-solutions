@@ -1,3 +1,4 @@
+[Discussion Post (created on 23/6/2021 at 12:46)](https://leetcode.com/problems/binary-tree-pruning/discuss/1356581/0m-faster-than-100-36mb-beats-93)  
 <h2>814. Binary Tree Pruning</h2><h3>Medium</h3><hr><div><p>Given the <code>root</code> of a binary tree, return <em>the same tree where every subtree (of the given tree) not containing a </em><code>1</code><em> has been removed</em>.</p>
 
 <p>A subtree of a node <code>node</code> is <code>node</code> plus every node that is a descendant of <code>node</code>.</p>
