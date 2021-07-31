@@ -1,3 +1,4 @@
+[Discussion Post (created on 31/6/2021 at 12:38)](https://leetcode.com/problems/map-sum-pairs/discuss/1373783/simple-short-code)  
 <h2>677. Map Sum Pairs</h2><h3>Medium</h3><hr><div><p>Implement the <code>MapSum</code> class:</p>
 
 <ul>
