@@ -1,3 +1,4 @@
+[Discussion Post (created on 1/7/2021 at 14:36)](https://leetcode.com/problems/making-a-large-island/discuss/1376154/260ms-faster-than-99-61.5-beats-98)  
 <h2>827. Making A Large Island</h2><h3>Hard</h3><hr><div><p>You are given an <code>n x n</code> binary matrix <code>grid</code>. You are allowed to change <strong>at most one</strong> <code>0</code> to be <code>1</code>.</p>
 
 <p>Return <em>the size of the largest <strong>island</strong> in</em> <code>grid</code> <em>after applying this operation</em>.</p>
