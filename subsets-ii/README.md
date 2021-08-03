@@ -1,3 +1,4 @@
+[Discussion Post (created on 3/7/2021 at 13:52)](https://leetcode.com/problems/subsets-ii/discuss/1380308/easy-short-solution)  
 <h2>90. Subsets II</h2><h3>Medium</h3><hr><div><p>Given an integer array <code>nums</code> that may contain duplicates, return <em>all possible subsets (the power set)</em>.</p>
 
 <p>The solution set <strong>must not</strong> contain duplicate subsets. Return the solution in <strong>any order</strong>.</p>
