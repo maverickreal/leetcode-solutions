@@ -1,3 +1,4 @@
+[Discussion Post (created on 16/7/2021 at 12:34)](https://leetcode.com/problems/minimum-window-substring/discuss/1406461/simple-program)  
 <h2>76. Minimum Window Substring</h2><h3>Hard</h3><hr><div><p>Given two strings <code>s</code> and <code>t</code> of lengths <code>m</code> and <code>n</code> respectively, return <em>the <strong>minimum window substring</strong> of </em><code>s</code><em> such that every character in </em><code>t</code><em> (<strong>including duplicates</strong>) is included in the window. If there is no such substring</em><em>, return the empty string </em><code>""</code><em>.</em></p>
 
 <p>The testcases will be generated such that the answer is <strong>unique</strong>.</p>
