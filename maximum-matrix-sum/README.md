@@ -1,3 +1,4 @@
+[Discussion Post (created on 21/7/2021 at 21:33)](https://leetcode.com/problems/maximum-matrix-sum/discuss/1417610/simple-efficient-code)  
 <h2>1975. Maximum Matrix Sum</h2><h3>Medium</h3><hr><div><p>You are given an <code>n x n</code> integer <code>matrix</code>. You can do the following operation <strong>any</strong> number of times:</p>
 
 <ul>
