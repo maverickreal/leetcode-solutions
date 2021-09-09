@@ -40,30 +40,11 @@ public:
                 }
             }
         }
-        /* for (int j = 0;j < sz;++j) {
-            for (int i = 0;i < sz;++i) {
-                if (mat[i][j]) {
-                    v[i][j].u = 1;
-                    if (i)
-                        v[i][j].u += v[i - 1][j].u;
-                }
-                if (mat[sz - i - 1][j]) {
-                    v[sz - i - 1][j].d = 1;
-                    if (i)
-                        v[sz - i - 1][j].d += v[sz - i][j].d;
-                }
-            }
-        } */
         int res = 0;
         for (int i = 0;i <= sz - 1;++i) {
             for (int j = 0;j <= sz - 1;++j)
                 res = max(res, min(v[i][j].u, min(v[i][j].d, min(v[i][j].l, v[i][j].r))));
         }
-        // for (auto it : v) {
-        //     for (auto ti : it)
-        //         cout << ti.u << ' ' << ti.d << ' ' << ti.l << ' ' << ti.r << "    ";
-        //     cout << '\n';
-        // }
         return res;
     }
 };
