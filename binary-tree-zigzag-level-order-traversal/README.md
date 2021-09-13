@@ -1,3 +1,4 @@
+[Discussion Post (created on 13/8/2021 at 12:49)](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/discuss/1460717/simple-recursive-code)  
 <h2>103. Binary Tree Zigzag Level Order Traversal</h2><h3>Medium</h3><hr><div><p>Given the <code>root</code> of a binary tree, return <em>the zigzag level order traversal of its nodes' values</em>. (i.e., from left to right, then right to left for the next level and alternate between).</p>
 
 <p>&nbsp;</p>
