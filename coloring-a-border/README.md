@@ -1,3 +1,4 @@
+[Discussion Post (created on 24/9/2021 at 11:33)](https://leetcode.com/problems/coloring-a-border/discuss/1537881/39.6mb-better-than-96)  
 <h2>1034. Coloring A Border</h2><h3>Medium</h3><hr><div><p>You are given an <code>m x n</code> integer matrix <code>grid</code>, and three integers <code>row</code>, <code>col</code>, and <code>color</code>. Each value in the grid represents the color of the grid square at that location.</p>
 
 <p>Two squares belong to the same <strong>connected component</strong> if they have the same color and are next to each other in any of the 4 directions.</p>
