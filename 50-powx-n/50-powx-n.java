@@ -22,7 +22,7 @@ class Solution {
             boolean fl=n<0;
             if(fl)
                 n=-n;
-            System.out.println(n+" ----");
+            //System.out.println(n+" ----");
             double res=func(x, n, 1);
             if(fl)
                 res=1/res;
