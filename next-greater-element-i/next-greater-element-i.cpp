@@ -1,32 +1,25 @@
 class Solution {
 public:
-    vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
-        	vector<int> ans;
+    typedef long long ll;
+#define endl '\n'
+const ll mod = 1e9 + 7;
 
-	for (int i = 0; i < nums1.size(); ++i)
-
-		ans.push_back(-1);
-
-	for (int it = 0; it < nums1.size(); ++it)
-
-	{
-
-		int ti = nums2.size() - 1;
-
-		while (nums1[it] != nums2[ti])
-
-		{
-
-			if (nums2[ti] > nums1[it])
-
-				ans[it] = nums2[ti];
-
-			--ti;
-
-		}
-
-	}
-
-	return ans;
+vector<int> nextGreaterElement(vector<int>& v1, vector<int>& v2) {
+    unordered_map<ll, ll>ump;
+    stack<ll>st;
+    for (ll i = 0;i < v2.size();++i) {
+        while (!st.empty() && st.top() < v2[i]) {
+            ump[st.top()] = v2[i];
+            st.pop();
+        }
+        st.push(v2[i]);
     }
+    while (!st.empty()) {
+        ump[st.top()] = -1;
+        st.pop();
+    }
+    for (int& i : v1)
+        i = ump[i];
+    return v1;
+}
 };
