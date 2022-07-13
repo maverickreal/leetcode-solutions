@@ -11,8 +11,7 @@ public:
     ll func(vi(ll)& v, ll in) {
         if (in >= sz)
             return 0;
-        if (dp[in] > 10000)
-            dp[in] = max(v[in], v[in] + func(v, in + 1));
+        dp[in] = max(v[in], v[in] + func(v, in + 1));
         return dp[in];
     }
     int maxSubArray(vector<int>& v) {
