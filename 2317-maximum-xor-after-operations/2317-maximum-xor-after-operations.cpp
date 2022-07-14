@@ -18,7 +18,7 @@ public:
                     zero = false;
             }
             if (fl)
-                res |= (1 << cnt);
+                res += (1 << cnt);
             ++cnt;
             if (zero)
                 break;
