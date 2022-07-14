@@ -1,3 +1,4 @@
+[Discussion Post (created on 14/6/2022 at 10:54)](https://leetcode.com/problems/maximum-xor-for-each-query/discuss/2279874/simple-efficient-code)  
 [Discussion Post (created on 16/4/2021 at 13:54)](https://leetcode.com/problems/maximum-xor-for-each-query/discuss/1211709/simple-solution-132-ms-faster-than-90.82-Memory%3A-92.7-MB-86.29)  
 <h2>1829. Maximum XOR for Each Query</h2><h3>Medium</h3><hr><div><p>You are given a <strong>sorted</strong> array <code>nums</code> of <code>n</code> non-negative integers and an integer <code>maximumBit</code>. You want to perform the following query <code>n</code> <strong>times</strong>:</p>
 
