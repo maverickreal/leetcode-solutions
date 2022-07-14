@@ -12,14 +12,12 @@ public:
             v[i] ^= v[i - 1];
         for (ll i = 0;i < sz;++i) {
             for (ll j = i + 1;j < sz;++j) {
-                for (ll k = j;k < sz;++k) {
-                    ll a = v[j - 1];
-                    if (i)
-                        a ^= v[i - 1];
-                    ll b = v[k] ^ v[j - 1];
-                    if (a == b)
-                        ++res;
-                }
+                ll xo = v[j];
+                if (i)
+                    xo ^= v[i - 1];
+                if (!xo) 
+                    res += j-i;
+                //cout<<i<<' '<<j<<' '<<res<<' '<<xo<<nl;
             }
         }
         return res;
