@@ -1,3 +1,4 @@
+[Discussion Post (created on 20/6/2022 at 12:35)](https://leetcode.com/problems/unique-binary-search-trees/discuss/2307467/easy-short-efficient-code)  
 <h2>96. Unique Binary Search Trees</h2><h3>Medium</h3><hr><div><p>Given an integer <code>n</code>, return <em>the number of structurally unique <strong>BST'</strong>s (binary search trees) which has exactly </em><code>n</code><em> nodes of unique values from</em> <code>1</code> <em>to</em> <code>n</code>.</p>
 
 <p>&nbsp;</p>
