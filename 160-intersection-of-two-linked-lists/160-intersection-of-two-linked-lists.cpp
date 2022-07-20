@@ -10,20 +10,14 @@ class Solution {
 public:
 typedef long long ll;
 #define ln ListNode
-#define tn treeNode
-typedef vector<ll> vi;
-#define endl '\n'
-const ll mod = 1e9;
 
 ListNode* getIntersectionNode(ListNode* x, ListNode* y) {
     ln* a = x, * b = y;
-    while (true) {
-        if (!a && b)
+    while (a || b) {
+        if (!a)
             a = x;
-        if (!b && a)
+        if (!b)
             b = y;
-        if (!(a || b))
-            break;
         if (a == b)
             return a;
         a = a->next;
