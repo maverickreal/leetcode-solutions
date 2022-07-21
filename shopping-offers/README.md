@@ -1,3 +1,4 @@
+[Discussion Post (created on 21/6/2022 at 16:20)](https://leetcode.com/problems/shopping-offers/discuss/2312710/simple-solution)  
 <h2>638. Shopping Offers</h2><h3>Medium</h3><hr><div><p>
 In LeetCode Store, there are some kinds of items to sell. Each item has a price.
 </p>
