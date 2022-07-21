@@ -1,54 +1,50 @@
 class Solution {
     typedef int ll;
-    typedef pair<ll, ll> pi;
 #define vi(x) vector<x>
-#define pb push_back
-    const ll mod = 1e9 + 7;
-    const char nl = '\n';
 public:
-    ll res, sz;
-    void func(vi(ll)& n, const vi(ll)& p, const vi(vi(ll))& s, ll cost = 0) {
-        bool zero = true;
+    ll  sz;
+    unordered_map<string, ll>dp;
+    ll func(const vi(ll)& n, const vi(ll)& p, const vi(vi(ll))& s) {
+        string str;
         for (ll it : n) {
-            if (it < 0) {
-                return;
-            }
-            if (it) {
-                zero = false;
-                break;
-            }
+            str.append(to_string(it) + ",");
         }
-        if (zero) {
-            res = min(res, cost);
-            return;
-        }
-        for (const vi(ll)& off : s) {
-            bool feasible = true;
-            for (ll in = 0;in < sz;++in) {
-                if (off[in] > n[in]) {
-                    feasible = false;
-                    break;
+        if (dp.find(str) == dp.end()) {
+            ll cost = INT_MAX;
+            for (const vi(ll)& off : s) {
+                bool feasible = true;
+                for (ll in = 0;in < sz;++in) {
+                    if (off[in] > n[in]) {
+                        feasible = false;
+                        break;
+                    }
                 }
+                if (!feasible) {
+                    continue;
+                }
+                auto ncp = n;
+                for (ll in = 0;in < sz;++in) {
+                    ncp[in] -= off[in];
+                }
+                cost = min(cost, off.back() + func(ncp, p, s));
             }
-            if (!feasible) {
-                continue;
-            }
-            auto ncp = n;
+            vi(ll)ncp(sz);
+            ll altCost = 0;
             for (ll in = 0;in < sz;++in) {
-                ncp[in] -= off[in];
+                altCost += n[in] * p[in];
             }
-            func(ncp, p, s, cost + off.back());
+            cost = min(cost, altCost + func(ncp, p, s));
+            dp[str] = cost;
         }
-        vi(ll)ncp(sz);
-        for (ll in = 0;in < sz;++in) {
-            cost += n[in] * p[in];
-        }
-        func(ncp, p, s, cost);
+        return dp[str];
     }
     int shoppingOffers(vector<int>& p, vector<vector<int>>& s, vector<int>& n) {
         sz = p.size();
-        res = INT_MAX;
-        func(n, p, s);
-        return res;
+        string tmp;
+        for (ll in = 0;in < sz;++in) {
+            tmp.append("0,");
+        }
+        dp[tmp] = 0;
+        return func(n, p, s);
     }
 };
