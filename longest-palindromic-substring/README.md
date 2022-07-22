@@ -1,3 +1,4 @@
+[Discussion Post (created on 22/6/2022 at 16:48)](https://leetcode.com/problems/longest-palindromic-substring/discuss/2317330/simple-short-code)  
 <h2>5. Longest Palindromic Substring</h2><h3>Medium</h3><hr><div><p>Given a string <code>s</code>, return&nbsp;<em>the longest palindromic substring</em> in <code>s</code>.</p>
 
 <p>&nbsp;</p>
