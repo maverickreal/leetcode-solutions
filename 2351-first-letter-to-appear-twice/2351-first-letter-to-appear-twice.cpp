@@ -3,14 +3,14 @@ class Solution {
 #define vi(x) vector<x>
 public:
     char repeatedCharacter(string& s) {
-        vi(bool)v(26);
+        ll mask=0;
         char res = '.';
         for (char ch : s) {
-            if (v[ch - 'a']) {
+            if (mask&(1<<(ch-'a'))) {
                 res = ch;
                 break;
             }
-            v[ch - 'a'] = true;
+            mask|=(1<<(ch-'a'));
         }
         return res;
     }
