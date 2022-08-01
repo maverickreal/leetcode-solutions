@@ -26,10 +26,11 @@ public:
                 }
                 if(check->right){
                     check->right=nullptr;
-                    res.push_back(nd->val);
+                    res.push_back(nd->val);//for inorder
                     nd=nd->right;
                 }
                 else{
+                    //for preorder: res.push_back(nd->val);
                     check->right=nd;
                     nd=nd->left;
                 }
