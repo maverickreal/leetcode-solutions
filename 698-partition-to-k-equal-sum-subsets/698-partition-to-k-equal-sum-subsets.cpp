@@ -1,53 +1,43 @@
 class Solution {
+    typedef long long ll;
+    typedef pair<ll, ll> pi;
+#define vi(x) vector<x>
+#define pb push_back
+    const ll mod = 1e9 + 7;
+    const char nl = '\n';
 public:
-    int dp[65537];
-bool solve(vector<int> &nums, int mask, int k, int cnt, int sum, int target)
-{
-    if(cnt==k)
-        return true;
-    
-    if(mask == (1<<nums.size())-1)
-        return false;
-    
-    if(dp[mask]!=-1)
-        return dp[mask];
-    
-    bool res=false;
-    for(int i=0;i<nums.size();i++)
-    {
-        if((mask & (1<<i))==0)
-        {
-            mask = mask^(1<<i);
-            if(nums[i]+sum<target)
-            {
-                res |= solve(nums, mask, k, cnt, sum+nums[i],target);
-                if(res==true)
-                    break;
-            }
-            else if(nums[i]+sum==target)
-            {
-                res |= solve(nums, mask, k, cnt+1, 0, target);
-                if(res==true)
-                    break;
-            }
-            mask = mask^(1<<i);
+    vi(vi(ll))dp;
+    ll sz, bm, tot;
+    bool func(const vi(int)& v, const ll& k, ll cur, ll curSum) {
+        if (cur == k) {
+            return true;
         }
+        if (curSum == tot / k) {
+            return func(v, k, cur + 1, 0);
+        }
+        if (dp[cur][bm] == -1) {
+            dp[cur][bm] = 0;
+            for (ll i = 0;i < sz && ((v[i] + curSum) <= (tot / k));++i) {
+                if (bm & (1 << i)) {
+                    continue;
+                }
+                bm |= (1 << i);
+                if (func(v, k, cur, curSum + v[i])) {
+                    dp[cur][bm] = 1;
+                    break;
+                }
+                bm ^= (1 << i);
+            }
+        }
+        return dp[cur][bm];
     }
-    
-    return dp[mask]=res;
-}
-
-bool canPartitionKSubsets(vector<int>& nums, int k) {
-    int mask = 0;
-    memset(dp,-1,sizeof(dp));
-    int sum=0;
-    for(int i=0;i<nums.size();i++)
-    {
-        sum += nums[i];
+    bool canPartitionKSubsets(vector<int>& v, int k) {
+        sz = v.size(), bm = 0, tot = accumulate(v.begin(), v.end(), 0);
+        if (tot % k) {
+            return false;
+        }
+        sort(v.begin(), v.end());
+        dp.resize(k, vi(ll)(1 << 16, -1));
+        return func(v, k, 0, 0);
     }
-    if(sum%k!=0)
-        return false;
-    int target = sum/k;
-    return solve(nums, mask, k, 0, 0, target);
-}
 };
