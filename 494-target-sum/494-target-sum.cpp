@@ -10,7 +10,7 @@ public:
     vi(vi(ll))dp;
     ll func(const vi(int)& v, ll in, ll sum) {
         if (in == sz) {
-            return  (((2 * sum) - tot) == tar);
+            return  (2 * sum - tot == tar);
         }
         if (dp[in][sum] == -1) {
             dp[in][sum] = func(v, in + 1, sum) + func(v, in + 1, sum + v[in]);
