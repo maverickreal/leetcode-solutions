@@ -1,3 +1,4 @@
+[Discussion Post (created on 31/7/2022 at 12:23)](https://leetcode.com/problems/distinct-subsequences/discuss/2508106/easy-short-efficient-clean-code)  
 <h2>115. Distinct Subsequences</h2><h3>Hard</h3><hr><div><p>Given two strings <code>s</code> and <code>t</code>, return <em>the number of distinct subsequences of <code>s</code> which equals <code>t</code></em>.</p>
 
 <p>A string's <strong>subsequence</strong> is a new string formed from the original string by deleting some (can be none) of the characters without disturbing the remaining characters' relative positions. (i.e., <code>"ACE"</code> is a subsequence of <code>"ABCDE"</code> while <code>"AEC"</code> is not).</p>
