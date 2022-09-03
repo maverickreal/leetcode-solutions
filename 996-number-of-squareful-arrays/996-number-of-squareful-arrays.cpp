@@ -8,6 +8,7 @@ class Solution {
 public:
     ll sz;
     unordered_set<ll>ust;
+    vi(vi(ll))dp;
     bool isps(const ll& n) {
         if (n < 4) {
             return (n < 2);
@@ -20,13 +21,15 @@ public:
         if (__builtin_popcount(bm) == sz) {
             return 1;
         }
-        ll res = 0;
-        for (ll i = 0;i < sz;++i) {
-            if ((bm & (1 << i)) == 0 && (pre == -1 || ust.find(pre + v[i]) != ust.end()) && (i == 0 || v[i - 1] < v[i] || (bm & (1 << (i - 1))))) {
-                res += func(v, bm | (1 << i), v[i]);
+        if (dp[bm][pre] == -1) {
+            dp[bm][pre] = 0;
+            for (ll i = 0;i < sz;++i) {
+                if ((bm & (1 << i)) == 0 && (pre == sz || ust.find(v[pre] + v[i]) != ust.end()) && (i == 0 || v[i - 1] < v[i] || (bm & (1 << (i - 1))))) {
+                    dp[bm][pre] += func(v, bm | (1 << i), i);
+                }
             }
         }
-        return res;
+        return dp[bm][pre];
     }
     int numSquarefulPerms(vector<int>& v) {
         sz = v.size();
@@ -34,6 +37,7 @@ public:
             ust.insert(i * i);
         }
         sort(v.begin(), v.end());
-        return func(v, 0, -1);
+        dp.assign(1 << sz, vi(ll)(sz + 1, -1));
+        return func(v, 0, sz);
     }
 };
