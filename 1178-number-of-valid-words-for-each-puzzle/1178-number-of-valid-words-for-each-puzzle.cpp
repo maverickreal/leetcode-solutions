@@ -8,9 +8,15 @@ class Solution {
 public:
     unordered_map<ll,ll>ump;
     ll func(const string& s) {
-        ll ans = ump[1<<(s[0]-'a')], sz = s.size(), mask = bm(s.substr(1));
-        for (ll sm = mask;sm > 0;sm = (sm - 1) & mask) {
-            ans += ump[sm | (1 << (s[0] - 'a'))];
+        ll ans = 0, sz = s.size();
+        for (ll mask = 0;mask < (1 << sz);mask += 2) {
+            ll actual = 1 << (s[0] - 'a');
+            for (ll i = 0;i < sz;++i) {
+                if ((mask >> i) & 1) {
+                    actual |= 1 << (s[i] - 'a');
+                }
+            }
+            ans += ump[actual];
         }
         return ans;
     }
