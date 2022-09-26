@@ -1,10 +1,6 @@
 class Solution {
     typedef long long ll;
-typedef pair<ll, ll> pi;
-#define vi(x) vector<x>
-#define pb push_back
-const ll mod = 1e9 + 7;
-const char nl = '\n';
+    #define vi(x) vector<x>
 public:
     ll n;
     vi(vi(ll))dp, nxt, overlap;
@@ -24,25 +20,25 @@ public:
         if(ans==-1){
             ans=0;
         }
-        //cout<<bm<<' '<<pre<<' '<<ans<<' '<<nxt[bm][pre]<<nl;
         return ans;
+    }
+    ll getOverLap(const string&a, const string&b){
+        ll m=a.size(), n=b.size();
+        for(ll k=m-min(m,n);k<m;++k){
+            if(a.substr(k)==b.substr(0, m-k)){
+                return m-k;
+            }
+        }
+        return 0;
     }
     string shortestSuperstring(vector<string>&v) {
         n=v.size();
-        dp.assign(1<<n, vi(ll)(n, -1)), nxt.assign(1<<n, vi(ll)(n, -1)), overlap.assign(n, vi(ll)(n, 0));
+        dp.assign(1<<n, vi(ll)(n, -1)), nxt.assign(1<<n, vi(ll)(n, -1)), overlap.assign(n, vi(ll)(n));
         for(ll i=0;i<n;++i){
             for(ll j=0;j<n;++j){
-                for(ll k=v[i].size()-min(v[i].size(), v[j].size());k<v[i].size();++k){
-                    if(v[i].substr(k)==v[j].substr(0, v[i].size()-k)){
-                        overlap[i][j]=v[i].size()-k;
-                        break;
-                    }
-                }
-                //cout<<overlap[i][j]<<' ';
+                overlap[i][j]=getOverLap(v[i],v[j]);
             }
-            //cout<<nl;
         }
-        //cout<<nl;
         ll mx=-1, nxtIn=-1;
         for(ll i=0;i<n;++i){
             ll rec=func(v, 1<<i, i);
@@ -50,14 +46,6 @@ public:
                 mx=rec, nxtIn=i;
             }
         }
-        // for(ll i=0;i<(1<<n);++i){
-        //     cout<<i<<"  ";
-        //     for(ll j=0;j<n;++j){
-        //         cout<<nxt[i][j]<<' ';
-        //     }
-        //     cout<<nl;
-        // }
-        //cout<<mx<<' '<<nxtIn;
         vi(bool)vis(n);
         ll bm=1<<nxtIn, pre=nxtIn;
         string ans=v[nxtIn];
@@ -69,11 +57,9 @@ public:
             vis[nxtIn]=true;
             pre=nxtIn;
             nxtIn=nxt[bm][nxtIn];
-            //cout<<nxtIn<<' '<<bm<<nl;
         }
         for(ll i=0;i<n;++i){
             if(!vis[i]){
-                //cout<<i<<' ';
                 ans.append(v[i]);
             }
         }
