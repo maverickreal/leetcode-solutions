@@ -8,12 +8,19 @@ const char nl = '\n';
 public:
     vi(vi(ll))g;
     vi(bool)vis;
-    ll func(ll in){
-        vis[in]=true;
+    ll func(){
         ll ans=0;
-        for(ll child:g[in]){
-            if(!vis[abs(child)]){
-                ans+=func(abs(child))+(child>0);
+        list<ll>l={0};
+        while(!l.empty()){
+            ll nd=l.front();
+            l.pop_front();
+            if(vis[abs(nd)]){
+                continue;
+            }
+            vis[abs(nd)]=true;
+            ans+=nd>0;
+            for(ll child:g[abs(nd)]){
+                l.pb(child);
             }
         }
         return ans;
@@ -24,6 +31,6 @@ public:
             g[e[0]].pb(e[1]);
             g[e[1]].pb(-e[0]);
         }
-        return func(0);
+        return func();
     }
 };
