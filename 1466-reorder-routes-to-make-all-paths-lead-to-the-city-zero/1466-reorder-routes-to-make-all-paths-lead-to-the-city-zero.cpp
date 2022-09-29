@@ -20,7 +20,9 @@ public:
             vis[abs(nd)]=true;
             ans+=nd>0;
             for(ll child:g[abs(nd)]){
-                l.pb(child);
+                if(!vis[abs(child)]){
+                    l.pb(child);
+                }
             }
         }
         return ans;
