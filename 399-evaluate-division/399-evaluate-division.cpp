@@ -1,46 +1,68 @@
 class Solution {
 typedef long long ll;
 typedef long double ld;
-typedef pair<string, ld> pi;
+typedef pair<ll, ld> pi;
 #define vi(x) vector<x>
 #define pb push_back
 const ll mod = 1e9 + 7;
 const char nl = '\n';
 public:
-    unordered_map<string, vi(pi)>g;
-    ld func(const string&a, const string&b){
-        list<pi>l={{a, 1}};
-        unordered_set<string>vis;
-        while(!l.empty()){
-            auto it=l.front();
-            if(g.find(it.first)==g.end()){
-                return -1;
+    vi(pi)par;
+    vi(ll)size;
+    pi find(ll n){
+        pi cur=par[n];
+        if(cur.first==n){
+            return cur;
+        }
+        pi rec=find(par[n].first);
+        par[n]={rec.first, rec.second*cur.second};
+        return par[n];
+    }
+    void merge(ll a, ll b, ld wt){
+        pi x=find(a), y=find(b);
+        if(x.first==y.first){
+            return;
+        }
+        if(size[x.first]<size[y.first]){
+            pi tmp=x;
+            x=y;
+            y=tmp;
+            wt=ld(1)/wt;
+        }
+        par[y.first]={x.first, (x.second*wt)/y.second};
+        size[x.first]+=size[y.first];
+    }
+    ld getAns(ll a, ll b){
+        if(a<1 || b<1){
+            return -1;
+        }
+        pi x=find(a), y=find(b);
+        if(x.first!=y.first){
+            return -1;
+        }
+        return (y.second/x.second);
+    }
+    unordered_map<string, ll>ump;
+    vector<double> calcEquation(vector<vector<string>>&eq, vector<double>&vals, vector<vector<string>>&qs) {
+        ll id=1;
+        for(auto it:eq){
+            if(ump.find(it[0])==ump.end()){
+                ump[it[0]]=id++;
             }
-            if(it.first==b){
-                return it.second;
-            }
-            l.pop_front();
-            if(vis.find(it.first)!=vis.end()){
-                continue;
-            }
-            vis.insert(it.first);
-            for(auto child:g[it.first]){
-                if(vis.find(child.first)==vis.end()){
-                    l.pb({child.first, child.second*it.second});
-                }
+            if(ump.find(it[1])==ump.end()){
+                ump[it[1]]=id++;
             }
         }
-        return ld(-1);
-    }
-    vector<double> calcEquation(vector<vector<string>>&eq, vector<double>&vals, vector<vector<string>>&qs) {
-        ll n=vals.size();
-        for(ll i=0;i<n;++i){
-            g[eq[i][0]].pb({eq[i][1], vals[i]});
-            g[eq[i][1]].pb({eq[i][0], ld(1)/vals[i]});
+        par.resize(id), size.assign(id, 1);
+        for(ll i=0;i<id;++i){
+            par[i]={i, 1};
+        }
+        for(ll i=0;i<vals.size();++i){
+            merge(ump[eq[i][0]], ump[eq[i][1]], vals[i]);
         }
         vi(double)ans;
-        for(auto q:qs){
-            ans.pb(func(q[0], q[1]));
+        for(ll i=0;i<qs.size();++i){
+            ans.pb(getAns(ump[qs[i][0]], ump[qs[i][1]]));
         }
         return ans;
     }
