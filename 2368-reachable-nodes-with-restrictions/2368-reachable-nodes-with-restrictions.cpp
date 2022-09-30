@@ -1,37 +1,37 @@
 class Solution {
-    typedef long long ll;
-    typedef pair<ll, ll> pi;
+typedef long long ll;
+typedef pair<ll, ll> pi;
 #define vi(x) vector<x>
 #define pb push_back
-    const ll mod = 1e9 + 7;
-    const char nl = '\n';
+const ll mod = 1e9 + 7;
+const char nl = '\n';
 public:
-    ll szv, szr;
-    vi(vi(ll))g;
-    vi(bool)r;
-    ll func(ll in, ll par) {
-        if (in >= szv || r[in]) {
-            return 0;
+    int reachableNodes(int n, vector<vector<int>>&e, vector<int>&r) {
+        vi(bool)ust(n, false), vis(n, false);
+        for(ll nd:r){
+            ust[nd]=true;
         }
-        ll res = 1;
-        for (ll ch : g[in]) {
-            if (ch != par) {
-                res += func(ch, in);
+        vi(vi(ll))g(n);
+        for(auto edge:e){
+            g[edge[0]].pb(edge[1]);
+            g[edge[1]].pb(edge[0]);
+        }
+        list<ll>l={0};
+        ll ans=0;
+        while(!l.empty()){
+            ll nd=l.front();
+            l.pop_front();
+            if(vis[nd]){
+                continue;
+            }
+            ++ans;
+            vis[nd]=true;
+            for(ll child:g[nd]){
+                if(!vis[child] && !ust[child]){
+                    l.pb(child);
+                }
             }
         }
-        return res;
-    }
-    int reachableNodes(int n, vector<vector<int>>& v, vector<int>& res) {
-        szv = n, szr = res.size();
-        g.resize(szv);
-        for (vi(int) ed : v) {
-            g[ed[0]].pb(ed[1]);
-            g[ed[1]].pb(ed[0]);
-        }
-        r.resize(szv);
-        for (ll it : res) {
-            r[it] = true;
-        }
-        return func(0, -1);
+        return ans;
     }
 };
