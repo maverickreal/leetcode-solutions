@@ -16,14 +16,8 @@ public:
         ll&ans=dp[in];
         if(ans==-1){
             ans=1;
-            for(ll j=in;;++j){
-                ll k=j-in+1;
-                k=j+1+k;
-                --k;
-                if(k>=n){
-                    break;
-                }
-                if(pref[in][j]==pref[j+1][k]){
+            for(ll j=in;(2*j)-in+1<n;++j){
+                if(pref[in][j]==pref[j+1][(2*j)-in+1]){
                     ans=max(ans, 1+func(s, j+1));
                 }
             }
