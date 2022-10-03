@@ -6,29 +6,43 @@ typedef pair<ll, ll> pi;
 const ll mod = 1e9 + 7;
 const char nl = '\n';
 public:
-    vi(ll)vis;
-    ll n;
-    bool func(const vi(vi(int))&g, ll nd){
-        ll&res=vis[nd];
-        if(res==-1){
-            res=0;
-            bool ans=1;
-            for(ll child:g[nd]){
-                ans&=func(g, child);
+    void topologicalSort(const vi(vi(ll))&g, vi(int)&v){
+        ll n=g.size();
+        vi(ll)ind(n);
+        for(auto it:g){
+            for(auto nd:it){
+                ++ind[nd];
             }
-            res=ans;
         }
-        return res;
-    }
-    vector<int> eventualSafeNodes(vector<vector<int>>&g) {
-        n=g.size();
-        vis.assign(n, -1);
-        vi(int)res;
+        list<ll>l;
         for(ll i=0;i<n;++i){
-            if(func(g, i)){
-                res.pb(i);
+            if(!ind[i]){
+                l.pb(i);
             }
         }
-        return res;
+        while(!l.empty()){
+            ll nd=l.front();
+            l.pop_front();
+            v.pb(nd);
+            for(ll child:g[nd]){
+                if(--ind[child]==0){
+                    l.pb(child);
+                }
+            }
+        }
+    }
+
+    vector<int> eventualSafeNodes(vector<vector<int>>&g) {
+        ll n=g.size();
+        vi(vi(ll))rg(n);
+        for(ll i=0;i<n;++i){
+            for(ll j:g[i]){
+                rg[j].pb(i);
+            }
+        }
+        vi(int)ans;
+        topologicalSort(rg, ans);
+        sort(begin(ans), end(ans));
+        return ans;
     }
 };
