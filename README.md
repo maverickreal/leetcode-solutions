@@ -1,13 +1,13 @@
 # leetcode-solutions
-Solutions to the problems I solve  at leetcode.
 
-Regularly updated with solutions to more questions.
+### Solutions to the problems I solve  at leetcode.
 
-Languages used: C++
+##### Regularly updated with solutions to more questions.
 
-For any query, drop it @ adity09@outlook.com
+**Languages used**: C++
 
-I'm at :-
-          linkedin.com/adityasaxena09
+**For any query, drop it** @ adity09@outlook.com
 
-Good luck!
+**I'm at**:- [Linkedin](linkedin.com/adityasaxena09) || [Twitter](https://twitter.com/maverickreal09)
+
+**Good luck!**
