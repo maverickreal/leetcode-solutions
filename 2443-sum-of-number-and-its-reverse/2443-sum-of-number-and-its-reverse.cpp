@@ -1,17 +1,17 @@
 class Solution {
 typedef long long ll;
+typedef pair<ll, ll> pi;
+#define vi(x) vector<x>
+#define pb push_back
+const ll mod = 1e9 + 7;
+const char nl = '\n';
 public:
-    ll reverse(ll num) {
-	    ll result = 0;
-	    while(num > 0){
-            result = result * 10 + (num % 10);
-            num /= 10;
-        }
-	    return result;
-    }
     bool sumOfNumberAndReverse(int n) {   
         for(ll i=0;i<=n;++i){
-            if(i+reverse(i)==n){
+            string str=to_string(i);
+            reverse(begin(str), end(str));
+            ll j=stoll(str);
+            if(i+j==n){
                 return 1;
             }
         }
