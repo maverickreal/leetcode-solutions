@@ -13,7 +13,7 @@ public:
         }
     };
     int minCost(vector<vector<int>>&v) {
-        ll m=v.size(), n=v[0].size(), ans=0;
+        ll m=v.size(), n=v[0].size();
         vi(vi(ll))cost(m, vi(ll)(n, LLONG_MAX));
         priority_queue<vi(ll), vi(vi(ll)), cmp>pq;
         pq.push({m-1, n-1, 0});
@@ -22,8 +22,10 @@ public:
             auto nd=pq.top();
             pq.pop();
             if(nd[0]==0 && nd[1]==0){
-                ans=nd[2];
                 break;
+            }
+            if(cost[nd[0]][nd[1]]<nd[2]){
+                continue;
             }
             if(nd[0]>0){
                 ll res=nd[2]+(v[nd[0]-1][nd[1]]!=3);
@@ -54,6 +56,6 @@ public:
                 }
             }
         }
-        return ans;
+        return cost[0][0];
     }
 };
