@@ -1,36 +1,28 @@
 class Solution {
+    typedef long long ll;
+    typedef pair<ll, ll> pi;
+#define vi(x) vector<x>
+#define pb push_back
+    const ll mod = 1e9 + 7;
+    const char nl = '\n';
 public:
-    
-vector<vector<int>>dp;
-
-int sz;
-
-bool func(const string&str, int in, int op){
-    if(op<0){
-        return 0;
+    bool checkValidString(const string& s) {
+        ll l = 0, h = 0;
+        for (char ch : s) {
+            if (ch == '(') {
+                ++l, ++h;
+            }
+            else if (ch == ')') {
+                --l, --h;
+            }
+            else {
+                --l, ++h;
+            }
+            if (h < 0) {
+                return false;
+            }
+            l=max(l, 0LL);
+        }
+        return (l==0);
     }
-    if(in==sz){
-	    return (op==0);
-    }
-    if(dp[in][op]>-1){
-	    return dp[in][op];
-    }
-    bool ans=0;
-    if(str[in]=='('){
-	    ans=func(str, in+1, op+1);
-    }
-    else if(str[in]==')'){
-	    ans=func(str, in+1, op-1);
-    }
-    else{
-	    ans=func(str, in+1, op) || func(str, in+1, op+1) || func(str, in+1, op-1);
-    }
-    return (dp[in][op]=ans);
-}
-
-bool checkValidString(const string&str){
-	sz=str.size();
-    dp.resize(sz, vector<int>(sz, -1));
-    return func(str, 0, 0);
-}
 };
