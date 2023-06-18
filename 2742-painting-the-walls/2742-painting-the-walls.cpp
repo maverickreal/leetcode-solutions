@@ -1,19 +1,19 @@
 class Solution {
 public:
     int n;
-    unordered_map<int, vector<int>>dp;
+    vector<vector<int>>dp;
     int func(const vector<int>&c, const vector<int>&t, int ind, int rem){
-        if(ind==n){
-            return (rem>-1 ? 0 : INT_MAX);
+        if(rem<1){
+            return 0;
         }
-        if(dp[rem].empty()){
-            dp[rem].resize(n, -1);
+        if(ind==n){
+            return INT_MAX;
         }
         if(dp[rem][ind]!=-1){
             return dp[rem][ind];
         }
-        int dont = func(c, t, ind+1, rem-1);
-        int take = func(c, t, ind+1, rem+t[ind]);
+        int dont = func(c, t, ind+1, rem);
+        int take = func(c, t, ind+1, rem-1-t[ind]);
         if(take<INT_MAX){
             take+=c[ind];
         }
@@ -21,6 +21,7 @@ public:
     }
     int paintWalls(vector<int>& cost, vector<int>& time) {
         n = cost.size();
-        return func(cost, time, 0, 0);
+        dp.resize(n+1, vector<int>(n+1, -1));
+        return func(cost, time, 0, n);
     }
 };
