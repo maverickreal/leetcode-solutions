@@ -1,19 +1,20 @@
 class Solution {
 public:
-    void func(stack<char>&st, const string&str){
-        for(char ch : str){
-            if(ch=='#'){
-                if(!st.empty()){
-                    st.pop();
-                }
-            } else{
-                st.push(ch);
+    void operate(string&str){
+        for(int i=0; i<str.size(); ++i){
+            if(str[i]!='#'){
+                continue;
             }
+            if(i>0){
+                str.erase(begin(str)+i-1);
+                --i;
+            }
+            str.erase(begin(str)+i);
+            --i;
         }
     }
     bool backspaceCompare(string s, string t) {
-        stack<char>sts, stt;
-        func(sts, s); func(stt, t);
-        return (sts == stt);
+        operate(s); operate(t);
+        return (s==t);
     }
 };
