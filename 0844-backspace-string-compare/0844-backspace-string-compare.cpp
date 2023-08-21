@@ -1,19 +1,19 @@
 class Solution {
 public:
-    void operate(stack<char>&st, const string&str){
-        for(const char&ch : str){
-            if(ch=='#'){
-                if(!st.empty()){
-                    st.pop();
+    void operate(string&str){
+        for(int i=0; i<str.size(); ++i){
+            if(str[i]=='#'){
+                str.erase(begin(str)+i);
+                --i;
+                if(i>-1){
+                    str.erase(begin(str)+i);
+                    --i;
                 }
-            } else{
-                st.push(ch);
             }
         }
     }
     bool backspaceCompare(string s, string t) {
-        stack<char>sts, stt;
-        operate(sts, s); operate(stt, t);
-        return (sts == stt);
+        operate(s); operate(t);
+        return (s==t);
     }
 };
