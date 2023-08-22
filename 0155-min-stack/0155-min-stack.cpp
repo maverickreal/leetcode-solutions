@@ -1,28 +1,30 @@
 class MinStack {
 public:
-    list<int>l;
+    list<int>st, mn;
     MinStack() {
         
     }
     
     void push(int val) {
-        l.push_back(val);
+        st.push_back(val);
+        if(mn.empty()){
+            mn.push_back(val);
+        } else{
+            mn.push_back(min(mn.back(), val));
+        }
     }
     
     void pop() {
-        l.pop_back();
+        mn.pop_back();
+        st.pop_back();
     }
     
     int top() {
-        return l.back();
+       return st.back(); 
     }
     
     int getMin() {
-        int mn = INT_MAX;
-        for(int it : l){
-            mn = min(mn, it);
-        }
-        return mn;
+     return mn.back();   
     }
 };
 
