@@ -1,15 +1,19 @@
 class Solution {
 public:
-    int leastInterval(vector<char>&v, int n) {
-        vector<int>ump(26);
-        for(char ch : v){
-            ++ump[ch-'A'];
+    int leastInterval(vector<char>& tasks, int n) {
+        vector<int>freq(26);
+        for(char ch : tasks){
+            ++freq[ch-'A'];
         }
-        sort(begin(ump), end(ump));
-        int newFreeSlots = n * (ump[25]-1);
+        sort(begin(freq), end(freq));
+        int freeTimeUnits = n * (freq.back() - 1);
         for(int i=24; i>-1; --i){
-            newFreeSlots-=min(ump[25]-1, ump[i]);
+            if(freq[i]==freq.back()){
+                freeTimeUnits -= freq[i] - 1;
+            } else{
+                freeTimeUnits -= freq[i];
+            }
         }
-        return max(0, newFreeSlots) + v.size();
+        return tasks.size() + max(0, freeTimeUnits);
     }
 };
