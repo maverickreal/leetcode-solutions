@@ -1,28 +1,21 @@
 class Solution {
-    typedef long long ll;
-    typedef pair<ll, ll> pi;
-#define vi(x) vector<x>
-#define pb push_back
-    const ll mod = 1e9 + 7;
-    const char nl = '\n';
 public:
-    string removeOuterParentheses(const string& s) {
-        ll sz = s.length(), pre = 0, o = 0, z = 0;
-        string res;
-        for (ll i = 0;i < sz;++i) {
-            if (s[i] == '(') {
-                ++o;
+    string removeOuterParentheses(string s) {
+        int bal=0, pre=0;
+        for(int i=0; i<s.size(); ++i){
+            if(s[i]=='('){
+                ++bal;
+            } else{
+                --bal;
             }
-            else {
-                ++z;
-            }
-            if (o == z) {
-                pre = i + 1;
-            }
-            else if(i!=pre) {
-                res.pb(s[i]);
+            if(!bal){
+                s.erase(begin(s)+pre);
+                --i;
+                s.erase(begin(s)+i);
+                --i;
+                pre=i+1;
             }
         }
-        return res;
+        return s;
     }
 };
