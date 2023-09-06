@@ -2,14 +2,14 @@ class Solution {
 public:
     string removeDuplicates(string s, int k) {
         stack<pair<char, int>>st;
-        for(int i=0; i<s.size(); ++i){
-            if(st.empty() || s[i]!=st.top().first){
-                st.push({s[i], 1});
+        for(char ch : s){
+            if(st.empty() || st.top().first!=ch){
+                st.push({ch, 1});
             } else{
                 ++st.top().second;
-            }
-            if(st.top().second==k){
-                st.pop();
+                if(st.top().second==k){
+                    st.pop();
+                }
             }
         }
         string ans;
@@ -19,6 +19,7 @@ public:
             }
             st.pop();
         }
-        return string(rbegin(ans), rend(ans));
+        reverse(begin(ans), end(ans));
+        return ans;
     }
 };
