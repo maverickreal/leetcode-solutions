@@ -1,27 +1,26 @@
 class Solution {
 public:
-    vector<int> nextGreaterElements(const vector<int>&v) {
+    vector<int> nextGreaterElements(vector<int>&v) {
+        stack<int>st;
         int n=v.size();
         vector<int>ans(n, INT_MIN);
         for(int i=0; i<n; ++i){
-            for(int j=i+1; j<n; ++j){
-                if(v[j]>v[i]){
-                    ans[i] = v[j];
-                    break;
-                }
+            while(!st.empty() && v[i]>v[st.top()]){
+                ans[st.top()] = v[i];
+                st.pop();
             }
-            if(ans[i]==INT_MIN){
-                for(int j=0; j<i; ++j){
-                    if(v[j]>v[i]){
-                        ans[i] = v[j];
-                        break;
-                    }
-                }
-            }
+            st.push(i);
         }
-        for(int&ele : ans){
-            if(ele==INT_MIN){
-                ele=-1;
+        for(int i=0; i<n; ++i){
+            while(!st.empty() && v[i]>v[st.top()]){
+                ans[st.top()] = v[i];
+                st.pop();
+            }
+            st.push(i);
+        }
+        for(int&it : ans){
+            if(it==INT_MIN){
+                it = -1;
             }
         }
         return ans;
