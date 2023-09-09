@@ -1,30 +1,29 @@
 class Solution {
 public:
-vector<int> nextGreaterElements(vector<int>&v) {
-	int sz=v.size();
-	list<int>st;
-vector<int>ans(sz, -1);
-	for(int i=sz-1;i>-1;--i){
-		while(!st.empty() && v[i]>=v[st.back()]){
-			st.pop_back();
-		}
-		if(!st.empty()){
-			ans[i]=st.back();
-		}
-		st.push_back(i);
-	}
-	for(int i=sz-1;i>-1;--i){
-        if(ans[i]>-1){
-            ans[i]=v[ans[i]];
-            continue;
+    vector<int> nextGreaterElements(const vector<int>&v) {
+        int n=v.size();
+        vector<int>ans(n, INT_MIN);
+        for(int i=0; i<n; ++i){
+            for(int j=i+1; j<n; ++j){
+                if(v[j]>v[i]){
+                    ans[i] = v[j];
+                    break;
+                }
+            }
+            if(ans[i]==INT_MIN){
+                for(int j=0; j<i; ++j){
+                    if(v[j]>v[i]){
+                        ans[i] = v[j];
+                        break;
+                    }
+                }
+            }
         }
-        while(!st.empty() && v[st.back()]<=v[i]){
-            st.pop_back();
+        for(int&ele : ans){
+            if(ele==INT_MIN){
+                ele=-1;
+            }
         }
-        if(!st.empty()){
-            ans[i]=v[st.back()];
-        }
+        return ans;
     }
-    return ans;
-}
 };
