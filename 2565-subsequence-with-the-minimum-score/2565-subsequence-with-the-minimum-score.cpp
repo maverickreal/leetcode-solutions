@@ -1,30 +1,28 @@
 class Solution {
 public:
-typedef long long ll;
-#define vi(x) vector<x>
-typedef pair<ll, ll> pi;
-#define pb push_back
-const ll mod = 1e9+7;
-const char nl = '\n';
-
-int minimumScore(const string&s, const string&t) {
-    ll m=s.size(), n=t.size(), k=n-1;
-    vi(ll)dp(n, -1);
-    for(ll l=m-1;l>-1 && k>-1;--l){
-        if(s[l]==t[k]){
-            dp[k--]=l;
+    int minimumScore(const string&a, const string&b) {
+        int m=a.size(), n=b.size();
+        vector<int>suf(n, -1);
+        int j=n-1;
+        for(int i=m-1; j>-1 && i>-1; --i){
+            if(a[i]==b[j]){
+                suf[j--] = i;
+            }
         }
-    }
-    if(k<0){
-        return 0;
-    }
-    ll ans=k+1;
-    for(ll i=0, j=0;i<m && j<n;++i){
-        if(s[i]==t[j]){
-            for(;k<n && dp[k]<=i;++k);
-            ans=max(0LL, min(ans, k - (++j)));
+        if(j==-1){
+            return 0;
         }
+        int ans=j+1;
+        for(int i=0, k=0; i<m && k<n; ++i){
+            if(a[i]!=b[k]){
+                continue;
+            }
+            while(j<n && suf[j]<=i){
+                ++j;
+            }
+            ans = min(ans, max(0, j-k-1));
+            ++k;
+        }
+        return ans;
     }
-    return ans;
-}
 };
