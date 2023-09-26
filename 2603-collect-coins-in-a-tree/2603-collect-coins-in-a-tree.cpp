@@ -1,64 +1,61 @@
 class Solution {
 public:
-    unordered_map<int, unordered_set<int>>g;
-
-    void trimNoValueLeaves(const vector<int>&val){
-        queue<int>q;
-        for(const auto&[k, v] : g){
-            if(v.size()==1 && !val[k]){
-                q.push(k);
+    int n;
+    vector<unordered_set<int>>g;
+    void trimNoCoinsLeaves(const vector<int>&coins){
+        list<int>l;
+        for(int nd=0; nd<n; ++nd){
+            if(!coins[nd]){
+                l.push_back(nd);
             }
         }
-        while(!q.empty()){
-            int nd = q.front();
-            q.pop();
-            if(!g[nd].empty()){
-                int par = *begin(g[nd]);
-                if(g[par].find(nd)!=g[par].end()){
-                    g[par].erase(nd);
-                }
-                g[nd].erase(par);
-                if(g[par].size()==1 && !val[par]){
-                    q.push(par);
-                }
+        while(!l.empty()){
+            int nd = l.front();
+            l.pop_front();
+            if(g[nd].size()!=1){
+                continue;
+            }
+            int child = *begin(g[nd]);
+            g[nd].erase(child);
+            if(g[child].find(nd)!=g[child].end()){
+                g[child].erase(nd);
+            }
+            if(!coins[child] && g[child].size()==1){
+                l.push_back(child);
             }
         }
     }
-    void trimNotToVisitLeaves(){
-        // for(const auto&[k, v] : g){
-        //     cout<<k<<endl;
-        //     for(const auto& nd : v){
-        //         cout<<nd<<' ';
-        //     }
-        //     cout<<endl;
-        // }
-        // return;
-        for(int i=0;i<2;++i){
-            vector<int>tmp;
-            for(const auto&[k, v] : g){
-                if(v.size()==1){
-                    tmp.push_back(k);
+    void trim2levels(){
+        for(int i=0; i<2; ++i){
+            vector<int>leaves;
+            for(int nd=0; nd<n; ++nd){
+                if(g[nd].size()==1){
+                    leaves.push_back(nd);
                 }
             }
-            for(int nd : tmp){
-                if(!g[nd].empty()){
-                    int par = *begin(g[nd]);
-                    g[nd].erase(par);
-                    if(g[par].find(nd)!=g[par].end()){
-                        g[par].erase(nd);
+            for(int leaf : leaves){
+                if(!g[leaf].empty()){
+                    int par=*begin(g[leaf]);
+                    g[leaf].erase(par);
+                    if(g[par].find(leaf)!=g[par].end()){
+                        g[par].erase(leaf);
                     }
                 }
             }
         }
     }
     int collectTheCoins(vector<int>& coins, vector<vector<int>>& edges) {
+        n = edges.size()+1;
+        g.resize(n);
         for(const auto&edge : edges){
-            g[edge[0]].insert(edge[1]), g[edge[1]].insert(edge[0]);
+            g[edge[0]].insert(edge[1]);
+            g[edge[1]].insert(edge[0]);
         }
-        trimNoValueLeaves(coins) ; trimNotToVisitLeaves();
+        trimNoCoinsLeaves(coins);
+        trim2levels();
         int ans=0;
-        for(const auto&[k, v] : g){
-            ans+=v.size();
+        for(const auto&ust : g){
+            ans+=ust.size();
         }
         return ans;
     }
