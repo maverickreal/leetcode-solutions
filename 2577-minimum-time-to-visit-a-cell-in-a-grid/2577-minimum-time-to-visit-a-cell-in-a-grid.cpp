@@ -14,25 +14,23 @@ public:
         priority_queue<vector<int>, vector<vector<int>>, cmp>pq;
         vector<vector<int>>vis(m, vector<int>(n)), dirs = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
         pq.push({0, 0, 0});
+        vis[0][0]=1;
         while(!pq.empty()){
             auto it=pq.top();
             pq.pop();
             if(it[0]==m-1 && it[1]==n-1){
                 return it[2];
             }
-            if(vis[it[0]][it[1]]){
-                continue;
-            }
-            vis[it[0]][it[1]]=1;
             for(const auto&dir : dirs){
                 int x=dir[0]+it[0], y=dir[1]+it[1];
-                if(x>-1 && y>-1 && x<m && y<n){
+                if(x>-1 && y>-1 && x<m && y<n && !vis[x][y]){
                     if(v[x][y]<=it[2]+1){
                         pq.push({x, y, it[2]+1});
                     } else{
                         bool inc = !((v[x][y]-it[2])&1);
                         pq.push({x, y, v[x][y]+inc});
                     }
+                    vis[x][y]=1;
                 }
             }
         }
