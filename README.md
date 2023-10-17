@@ -8,6 +8,6 @@
 
 **For any query, drop it** @ adity09@outlook.com
 
-**I'm at**:- [Linkedin](linkedin.com/adityasaxena09) || [Twitter](https://twitter.com/maverickreal09)
+**I'm at**:- [Linkedin](linkedin.com/in/adityasaxena09) || [Twitter](https://twitter.com/maverickreal09)
 
 **Good luck!**
