@@ -36,6 +36,7 @@
 |  |
 | ------- |
 | [1872-stone-game-viii](https://github.com/maverickreal/leetcode-solutions/tree/master/1872-stone-game-viii) |
+| [3718-smallest-missing-multiple-of-k](https://github.com/maverickreal/leetcode-solutions/tree/master/3718-smallest-missing-multiple-of-k) |
 ## Dynamic Programming
 |  |
 | ------- |
@@ -52,4 +53,8 @@
 |  |
 | ------- |
 | [1872-stone-game-viii](https://github.com/maverickreal/leetcode-solutions/tree/master/1872-stone-game-viii) |
+## Hash Table
+|  |
+| ------- |
+| [3718-smallest-missing-multiple-of-k](https://github.com/maverickreal/leetcode-solutions/tree/master/3718-smallest-missing-multiple-of-k) |
 <!---LeetCode Topics End-->
