@@ -21,15 +21,11 @@ function lexGreaterPermutation(str: string, tar: string): string {
         freq[ch] = 1 + (freq[ch] ?? 0);
     }
     const freqCpy = { ...freq };
-    Object.freeze(freqCpy);
     let pos: number = -1;
 
     for (let i: number = 0; i < sz; ++i) {
-        const nxt = getSmallestBigger(freq, tar[i]).length;
-
-        if (nxt === 1) {
-            pos = i;
-        }
+        const nxt = getSmallestBigger(freq, tar[i]);
+        pos = (nxt === "") ? pos : i;
 
         if (!freq[tar[i]]) {
             break;
@@ -45,23 +41,17 @@ function lexGreaterPermutation(str: string, tar: string): string {
 
     for (let i: number = 0; i < pos; ++i) {
         chars[i] = tar[i];
-
-        if (--freq[tar[i]] === 0) {
-            delete freq[tar[i]];
-        }
+        --freq[tar[i]];
     }
     chars[pos] = getSmallestBigger(freq, tar[pos]);
+    --freq[chars[pos]];
 
-    if (--freq[chars[pos]] === 0) {
-        delete freq[chars[pos]];
-    }
+    for (let i: number = 0; i < 26; ++i) {
+        const ch = String.fromCharCode('a'.charCodeAt(0) + i);
 
-    const remChars = Object.entries(freq)
-        .sort((a, b) => (a[0] < b[0]) ? -1 : 1);
-
-    for (let i: number = pos + 1, j: number = 0; i < sz; ++i) {
-        chars[i] = remChars[j][0];
-        j += (--remChars[j][1] === 0) ? 1 : 0;
+        while (freq[ch]--) {
+            chars[++pos] = ch;
+        }
     }
 
     return chars.join('');
