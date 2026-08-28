@@ -2,14 +2,13 @@ let sz: number;
 let freq: Uint16Array;
 const aCode = 'a'.charCodeAt(0);
 let oddChar: string;
-let semLen: number;
 let str: string;
 let tar: string;
 
 const func = (preSame: boolean): boolean => {
     const ind = str.length;
 
-    if (ind === semLen) {
+    if (ind === (sz >> 1)) {
         const res = str + oddChar + str.split('').reverse().join('');
 
         if (res > tar) {
@@ -20,7 +19,7 @@ const func = (preSame: boolean): boolean => {
 
         return false;
     }
-    const tarIndCode = tar.charCodeAt(ind)-aCode;
+    const tarIndCode = tar.charCodeAt(ind) - aCode;
 
     for (
         let i: number = preSame ? tarIndCode : 0;
@@ -46,7 +45,6 @@ const func = (preSame: boolean): boolean => {
 
 function lexPalindromicPermutation(txt: string, _Tar: string): string {
     sz = txt.length;
-    semLen = sz >> 1;
     freq = new Uint16Array(26);
     str = oddChar = "";
     tar = _Tar;
