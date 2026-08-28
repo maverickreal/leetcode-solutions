@@ -4,79 +4,10 @@
 
 ##### Regularly updated with solutions to more questions.
 
-**Languages used**: C++
+**Languages used**: C++ and T.S.
 
 **For any query, drop it** @ adity09@outlook.com
 
 **I'm at**:- [Linkedin](https://www.linkedin.com/in/adityasaxena09) || [Twitter](https://www.twitter.com/maverickreal09)
 
 **Good luck!**
-
-<!---LeetCode Topics Start-->
-# LeetCode Topics
-## Math
-|  |
-| ------- |
-| [1872-stone-game-viii](https://github.com/maverickreal/leetcode-solutions/tree/master/1872-stone-game-viii) |
-| [1927-sum-game](https://github.com/maverickreal/leetcode-solutions/tree/master/1927-sum-game) |
-## String
-|  |
-| ------- |
-| [1927-sum-game](https://github.com/maverickreal/leetcode-solutions/tree/master/1927-sum-game) |
-| [2904-shortest-and-lexicographically-smallest-beautiful-string](https://github.com/maverickreal/leetcode-solutions/tree/master/2904-shortest-and-lexicographically-smallest-beautiful-string) |
-| [3720-lexicographically-smallest-permutation-greater-than-target](https://github.com/maverickreal/leetcode-solutions/tree/master/3720-lexicographically-smallest-permutation-greater-than-target) |
-| [3734-lexicographically-smallest-palindromic-permutation-greater-than-target](https://github.com/maverickreal/leetcode-solutions/tree/master/3734-lexicographically-smallest-palindromic-permutation-greater-than-target) |
-## Greedy
-|  |
-| ------- |
-| [1927-sum-game](https://github.com/maverickreal/leetcode-solutions/tree/master/1927-sum-game) |
-| [3720-lexicographically-smallest-permutation-greater-than-target](https://github.com/maverickreal/leetcode-solutions/tree/master/3720-lexicographically-smallest-permutation-greater-than-target) |
-## Game Theory
-|  |
-| ------- |
-| [1872-stone-game-viii](https://github.com/maverickreal/leetcode-solutions/tree/master/1872-stone-game-viii) |
-| [1927-sum-game](https://github.com/maverickreal/leetcode-solutions/tree/master/1927-sum-game) |
-## Array
-|  |
-| ------- |
-| [1872-stone-game-viii](https://github.com/maverickreal/leetcode-solutions/tree/master/1872-stone-game-viii) |
-| [3718-smallest-missing-multiple-of-k](https://github.com/maverickreal/leetcode-solutions/tree/master/3718-smallest-missing-multiple-of-k) |
-## Dynamic Programming
-|  |
-| ------- |
-| [1872-stone-game-viii](https://github.com/maverickreal/leetcode-solutions/tree/master/1872-stone-game-viii) |
-## Minimax
-|  |
-| ------- |
-| [1872-stone-game-viii](https://github.com/maverickreal/leetcode-solutions/tree/master/1872-stone-game-viii) |
-## Prefix Sum
-|  |
-| ------- |
-| [1872-stone-game-viii](https://github.com/maverickreal/leetcode-solutions/tree/master/1872-stone-game-viii) |
-## Zero-Sum Game
-|  |
-| ------- |
-| [1872-stone-game-viii](https://github.com/maverickreal/leetcode-solutions/tree/master/1872-stone-game-viii) |
-## Hash Table
-|  |
-| ------- |
-| [3718-smallest-missing-multiple-of-k](https://github.com/maverickreal/leetcode-solutions/tree/master/3718-smallest-missing-multiple-of-k) |
-| [3720-lexicographically-smallest-permutation-greater-than-target](https://github.com/maverickreal/leetcode-solutions/tree/master/3720-lexicographically-smallest-permutation-greater-than-target) |
-## Sliding Window
-|  |
-| ------- |
-| [2904-shortest-and-lexicographically-smallest-beautiful-string](https://github.com/maverickreal/leetcode-solutions/tree/master/2904-shortest-and-lexicographically-smallest-beautiful-string) |
-## Counting
-|  |
-| ------- |
-| [3720-lexicographically-smallest-permutation-greater-than-target](https://github.com/maverickreal/leetcode-solutions/tree/master/3720-lexicographically-smallest-permutation-greater-than-target) |
-## Enumeration
-|  |
-| ------- |
-| [3720-lexicographically-smallest-permutation-greater-than-target](https://github.com/maverickreal/leetcode-solutions/tree/master/3720-lexicographically-smallest-permutation-greater-than-target) |
-| [3734-lexicographically-smallest-palindromic-permutation-greater-than-target](https://github.com/maverickreal/leetcode-solutions/tree/master/3734-lexicographically-smallest-palindromic-permutation-greater-than-target) |
-## Two Pointers
-|  |
-| ------- |
-| [3734-lexicographically-smallest-palindromic-permutation-greater-than-target](https://github.com/maverickreal/leetcode-solutions/tree/master/3734-lexicographically-smallest-palindromic-permutation-greater-than-target) |
-<!---LeetCode Topics End-->
