@@ -1,24 +1,28 @@
 function uniformArray(nums: number[]): boolean {
-    let mo: number = Infinity;
+    let minOdd: number = Infinity;
     const sz = nums.length;
 
     for (let i: number = 0; i < sz; ++i) {
-        if ((nums[i] & 1) === 1 && nums[i] < mo) {
-            mo = nums[i];
+        if ((nums[i] & 1) === 1 && nums[i] < minOdd) {
+            minOdd = nums[i];
         }
     }
-    let ao: boolean = true;
-    let ae: boolean = true;
+    let oddValid: boolean = true;
+    let evenValid: boolean = true;
 
-    for (let i: number = 0; i < sz && (ae || ao); ++i) {
-        const found = mo < nums[i];
+    for (
+        let i: number = 0;
+        i < sz && (evenValid || oddValid);
+        ++i
+    ) {
+        const found = minOdd < nums[i];
 
         if ((nums[i] & 1) === 0) {
-            ao &&= found;
+            oddValid &&= found;
         } else {
-            ae &&= found;
+            evenValid &&= found;
         }
     }
 
-    return ao || ae;
+    return evenValid || oddValid;
 };
