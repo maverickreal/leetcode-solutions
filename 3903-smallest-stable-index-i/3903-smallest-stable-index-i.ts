@@ -1,7 +1,7 @@
 function firstStableIndex(nums: number[], k: number): number {
     const sz = nums.length;
-    const mx = BigInt64Array.from(nums, BigInt);
-    const mn = BigInt64Array.from(nums, BigInt);
+    const mx = Uint32Array.from(nums);
+    const mn = Uint32Array.from(nums);
 
     for (let i: number = 0; i < sz; ++i) {
         mx[i] = (i === 0 || mx[i] > mx[i - 1]) ? mx[i] : mx[i - 1];
