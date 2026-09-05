@@ -1,16 +1,15 @@
 function firstStableIndex(nums: number[], k: number): number {
     const sz = nums.length;
-    const mx = Uint32Array.from(nums);
     const mn = Uint32Array.from(nums);
 
-    for (let i: number = 0; i < sz; ++i) {
-        mx[i] = (i === 0 || mx[i] > mx[i - 1]) ? mx[i] : mx[i - 1];
-        mn[sz - i - 1] = (i === 0 || mn[sz - i - 1] < mn[sz - i]) ?
-            mn[sz - i - 1] : mn[sz - i];
+    for (let i: number = sz - 1; i > -1; --i) {
+        mn[i] = (i === sz - 1 || mn[i] < mn[i + 1]) ? mn[i] : mn[i + 1];
     }
 
-    for (let i: number = 0; i < sz; ++i) {
-        if ((mx[i] - mn[i]) <= k) {
+    for (let i: number = 0, mx: number = -1; i < sz; ++i) {
+        mx = Math.max(mx, nums[i]);
+
+        if ((mx - mn[i]) <= k) {
             return i;
         }
     }
