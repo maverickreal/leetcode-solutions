@@ -8,10 +8,12 @@ function countCommas(n: number): number {
         _N = (_N / 10) | 0;
     }
 
-    for (let i: number = 4; i < len; ++i) {
-        ans += 9 * Math.pow(10, i - 1);
+    for (let i: number = 4; i <= len; ++i) {
+        const cntPerWidth = ((i - 1) / 3) | 0;
+        const pow = Math.pow(10, i - 1);
+        const cnt = i === len ? n - pow + 1 : 9 * pow;
+        ans += cnt * cntPerWidth;
     }
-    ans += len > 3 ? n - Math.pow(10, len - 1) + 1 : 0;
 
     return ans;
 };
