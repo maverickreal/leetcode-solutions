@@ -17,6 +17,7 @@
 ## Array
 |  |
 | ------- |
+| [0835-image-overlap](https://github.com/maverickreal/leetcode-solutions/tree/master/0835-image-overlap) |
 | [2091-removing-minimum-and-maximum-from-array](https://github.com/maverickreal/leetcode-solutions/tree/master/2091-removing-minimum-and-maximum-from-array) |
 | [3414-maximum-score-of-non-overlapping-intervals](https://github.com/maverickreal/leetcode-solutions/tree/master/3414-maximum-score-of-non-overlapping-intervals) |
 | [3483-unique-3-digit-even-numbers](https://github.com/maverickreal/leetcode-solutions/tree/master/3483-unique-3-digit-even-numbers) |
@@ -56,6 +57,7 @@
 ## Matrix
 |  |
 | ------- |
+| [0835-image-overlap](https://github.com/maverickreal/leetcode-solutions/tree/master/0835-image-overlap) |
 | [3568-minimum-moves-to-clean-the-classroom](https://github.com/maverickreal/leetcode-solutions/tree/master/3568-minimum-moves-to-clean-the-classroom) |
 ## Prefix Sum
 |  |
